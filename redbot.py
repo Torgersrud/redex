@@ -1,5 +1,4 @@
 import requests
-import pandas as pd
 from wordfrequence import frequentWords
 from CRYPTOPRICETRACKER import getCoinData
 from cleanfile import frequentWords
@@ -36,13 +35,15 @@ def get_reddit_thread(threadname : str):
         for post in res.json()['data']["children"]:
         # append relevant data to dataframe
                 posts.append(post["data"]["selftext"])
-        return "".join(posts)
+        return "\n".join(posts)
 
-crypto = get_reddit_thread("crypto")
-
-#print(frequentWords(crypto, 10))
-print(get_reddit_thread("gravemaskin"))
-
+def textCount(keywords, text):
+        talley = {}
+        for i in keywords:
+                talley[i] = text.count(i)
+        return talley
+        
+                
 
 
 

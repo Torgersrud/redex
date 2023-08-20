@@ -40,8 +40,7 @@ def getCoinData():
   data = json.loads(response.text)
   for i in range(5000):
     livedata[(data["data"][i]["name"])] = data["data"][i]["quote"]["USD"]["market_cap"]
-  return livedata.keys()
+  return livedata
 
-print(getCoinData())
     
 
