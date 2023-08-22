@@ -31,6 +31,7 @@ def get_reddit_thread(threadname : str):
         res = requests.get(f"https://oauth.reddit.com/r/{threadname}/new",
                         headers=headers)
         # loop through each post retrieved from GET request
+        print(threadname)
         posts = []
         for post in res.json()['data']["children"]:
         # append relevant data to dataframe
@@ -42,11 +43,4 @@ def textCount(keywords, text):
         for i in keywords:
                 talley[i] = text.count(i)
         return talley
-        
-                
-
-
-
-
-
 
